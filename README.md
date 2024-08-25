@@ -1,5 +1,34 @@
 ## CCIP Cross Chain Name Service
 
+# CCIP Cross Chain Name Service
+
+## Solution to the Challenge - Chainlink CCIP Bootcamp
+
+This repository contains my solution to the Chainlink CCIP Bootcamp challenge. The implementation includes a test for the cross-chain name service using the Chainlink CCIP Local Simulator (`CCIPLocalSimulator`).
+
+### Test Description
+
+The test verifies the functionality of the cross-chain name service through the following steps:
+
+1. An instance of the `CCIPLocalSimulator.sol` contract is created.
+2. The Router contract address is retrieved using the `configuration()` function.
+3. Instances of the `CrossChainNameServiceRegister.sol`, `CrossChainNameServiceReceiver.sol`, and `CrossChainNameServiceLookup.sol` smart contracts are deployed.
+4. The `enableChain()` function is called on the `CrossChainNameServiceRegister.sol` contract to configure the chain.
+5. The cross-chain name service address is set in the "source" and "receiver" instances of the `CrossChainNameServiceLookup.sol` contract, linking them to the appropriate contracts.
+6. The name "alice.ccns" is registered using the `register()` function with Alice's EOA address.
+7. The `lookup()` function is called to verify that it returns Alice's EOA address for "alice.ccns".
+
+### Running the Test
+
+To run the test, ensure your local development environment is configured, and then execute:
+
+```bash
+npx hardhat test --network hardhat
+```
+
+-----
+
+
 > **Note**
 >
 > _This repository represents an example of using a Chainlink product or service. It is provided to help you understand how to interact with Chainlink’s systems so that you can integrate them into your own. This template is provided "AS IS" without warranties of any kind, has not been audited, and may be missing key checks or error handling to make the usage of the product more clear. Take everything in this repository as an example and not something to be copy pasted into a production ready service._

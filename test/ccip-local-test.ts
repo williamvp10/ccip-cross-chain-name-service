@@ -21,6 +21,9 @@ describe("CCIPLocalTest", function () {
         // Retrieve the router address and the lookup contract
         const config = await simulator.configuration();
         const routerAddress = config.sourceRouter_;
+        const destinationRouter = config.destinationRouter_;
+        console.log("Router address: ", routerAddress);
+        console.log("Destination router address: ", destinationRouter);
 
         // Deploy the CrossChainNameServiceLookup contract (common for both)
         const CrossChainNameServiceLookup = await ethers.getContractFactory("CrossChainNameServiceLookup");
@@ -37,7 +40,7 @@ describe("CCIPLocalTest", function () {
 
         // Deploy the CrossChainNameServiceReceiver contract
         const CrossChainNameServiceReceiver = await ethers.getContractFactory("CrossChainNameServiceReceiver");
-        receiver = await CrossChainNameServiceReceiver.deploy(routerAddress, lookupReceiver.address, config.chainSelector_);
+        receiver = await CrossChainNameServiceReceiver.deploy(destinationRouter, lookupReceiver.address, config.chainSelector_);
         await receiver.deployed();
 
         // Enable the chain on the register contract

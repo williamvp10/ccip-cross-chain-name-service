@@ -1,7 +1,5 @@
 ## CCIP Cross Chain Name Service
 
-# CCIP Cross Chain Name Service
-
 ## Solution to the Challenge - Chainlink CCIP Bootcamp
 
 This repository contains my solution to the Chainlink CCIP Bootcamp challenge. The implementation includes a test for the cross-chain name service using the Chainlink CCIP Local Simulator (`CCIPLocalSimulator`).
